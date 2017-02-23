@@ -3,11 +3,16 @@
  */
 
 import { Component } from "@angular/core";
-
+import { Http, Response } from "@angular/http";
 
 @Component({
   selector: "simple-http",
-  template: `<div>http</div>`
+  template: `
+    <h2>Basic request</h2>
+    <button type="button" (click)="makeReq()">Make Request</button>
+    <div *ngIf="loading">Loading...</div>
+    <pre>{{ data | json }}</pre>
+`
 })
 export class SimpleHttp {
 
