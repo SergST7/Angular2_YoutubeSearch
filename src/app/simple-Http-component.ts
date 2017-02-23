@@ -9,11 +9,24 @@ import { Http, Response } from "@angular/http";
   selector: "simple-http",
   template: `
     <h2>Basic request</h2>
-    <button type="button" (click)="makeReq()">Make Request</button>
+    <button type="button" class="btn btn-primary" (click)="makeReq()">Make Request</button>
     <div *ngIf="loading">Loading...</div>
     <pre>{{ data | json }}</pre>
 `
 })
 export class SimpleHttp {
+  data: Object;
+  loading: boolean;
 
+  constructor(public http: Http){
+  }
+
+  makeReq(): void{
+    this.loading = true;
+    this.http.request('http://jsonplaceholder.typicode.com/posts/1')
+      .subscribe( (res: Response) => {
+        this.data = res.json();
+        this.loading = false;
+      })
+  }
 }
