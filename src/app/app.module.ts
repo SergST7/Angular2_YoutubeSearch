@@ -2,6 +2,7 @@ import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 
+import { serviceInjectables } from './youtube-search/providers';
 
 import { AppComponent }  from './app.component';
 import { SimpleHttp }  from './simple-Http-component';
@@ -16,6 +17,9 @@ import { SimpleHttp }  from './simple-Http-component';
     AppComponent,
     SimpleHttp
   ],
-  bootstrap:    [ AppComponent ]
+  bootstrap:    [ AppComponent ],
+  providers: [
+    serviceInjectables
+  ]
 })
 export class AppModule { }
