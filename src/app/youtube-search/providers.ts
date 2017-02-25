@@ -9,11 +9,7 @@ import {
 } from "@angular/http";
 
 import {
-  Component,
   Injectable,
-  OnInit,
-  ElementRef,
-  EventEmitter,
   Inject
 } from "@angular/core";
 
@@ -39,7 +35,7 @@ export class YouTubeService {
   constructor (public http: Http,
                @Inject (YOUTUBE_API_KEY) private apiKey: string,
                @Inject (YOUTUBE_API_URL) private apiUrl: string,
-  );
+  ){};
 
   search(query: string): Observable<SearchResult[]>{
     let param: string = [
@@ -54,7 +50,7 @@ export class YouTubeService {
 
     return this.http.get(queryUrl)
       .map((res: Response) => {
-        return (<any>res.json()).items.map( item => {
+        return (<any>res.json()).items.map( (item: any) => {
           console.log('raw item: ', item)
         })
     })
