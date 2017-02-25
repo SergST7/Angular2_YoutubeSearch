@@ -12,7 +12,7 @@ import { SimpleHttp }  from './simple-Http-component';
   imports:      [
     BrowserModule,
     HttpModule
-  ],
+],
   declarations: [
     AppComponent,
     SimpleHttp
