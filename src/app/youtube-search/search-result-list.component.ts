@@ -16,14 +16,19 @@ import { SearchResult } from "./search-result-model"
         <search-box
             (loading)="loading=$event"
             (searchResults)="updateResults($event)">
-            </search-box>
+        </search-box>
       </div>
     </div>
     <img *ngIf="loading" src="images/loading.gif">
-    
-</div>
- 
- </div>`
+    <div class="row">
+      <search-result-item
+          *ngFor="let result of res"
+          [result]="result">
+      </search-result-item>
+     </div>
+  </div>
+ </div>
+`
 })
 export class SearchResultListComponent{
   res: SearchResult[];
