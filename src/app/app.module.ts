@@ -7,6 +7,7 @@ import { serviceInjectables } from './youtube-search/providers';
 import { AppComponent }  from './app.component';
 import { SimpleHttp }  from './simple-Http-component';
 import { SearchBoxInput }  from './youtube-search/searchbox-component';
+import { SearchResultItemComponent }  from './youtube-search/search-result-item.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { SearchBoxInput }  from './youtube-search/searchbox-component';
   declarations: [
     AppComponent,
     SimpleHttp,
-    SearchBoxInput
+    SearchBoxInput,
+    SearchResultItemComponent
   ],
   bootstrap:    [ AppComponent ],
   providers: [
