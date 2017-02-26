@@ -13,10 +13,10 @@ import {
   Inject
 } from "@angular/core";
 
-import { Observable } from "rxjs";
+import { Observable } from "rxjs/Observable";
 import { SearchResult } from './search-result-model';
 
-let YOUTUBE_API_KEY: string = "AIzaSyAyMONPDO7l3sxN0kDoVtfq1w_lW2fGQeY";
+let YOUTUBE_API_KEY: string = "AIzaSyBSM04Dv_7t-kbi43yCgYQ96PpYoZarzhk";
 let YOUTUBE_API_URL: string = "https://www.googleapis.com/youtube/v3/search";
 
 export var serviceInjectables: Array<any> = [
@@ -39,8 +39,8 @@ export class YouTubeService {
 
   search(query: string): Observable<SearchResult[]>{
     let param: string = [
-      `q = ${query}`,
-      `key = ${this.apiKey}`,
+      `q=${query}`,
+      `key=${this.apiKey}`,
       `part=snippet`,
       `type=video`,
       `maxResults=10`

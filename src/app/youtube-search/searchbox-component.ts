@@ -6,11 +6,13 @@ import {
   Component,
   OnInit,
   EventEmitter,
-  ElementRef
+  ElementRef,
 } from "@angular/core";
 
-import { SearchResult } from './search-result-model';
-import { YouTubeService } from "./providers";
+import {Observable} from "rxjs/Rx";
+
+import {SearchResult} from './search-result-model';
+import {YouTubeService} from "./providers";
 
 /**
  * SearchBox displays the search box and emits events based on the results
@@ -22,13 +24,48 @@ import { YouTubeService } from "./providers";
   template: `<input type="text" class="form-control" placeholder="Search" autofocus>`,
   providers: [YouTubeService]
 })
-export class SearchBoxInput implements OnInit{
+export class SearchBoxInput implements OnInit {
+
   loading: EventEmitter <boolean> = new EventEmitter <boolean>();
   searchResult: EventEmitter <SearchResult[]> = new EventEmitter <SearchResult[]>();
 
-  constructor(public youTube: YouTubeService, private el: ElementRef){};
+  constructor(public youtube: YouTubeService, private el: ElementRef) {
+  };
 
-  ngOnInit(): void{
+  ngOnInit(): void {
 
+    console.log(this.el.nativeElement); //our element
+
+    // convert the `keyup` event into an observable stream
+    Observable.fromEvent(this.el.nativeElement, 'keyup')
+
+      .map((e: any) => e.target.value) // extract the value of the input
+
+      .filter((text: string) => text.length > 1) // filter out if empty
+
+      .debounceTime(500) // only once every 500ms
+
+      .do(() => this.loading.next(true)) // enable loading
+
+      // search, discarding old events if new input comes in
+      .map((query: string) => this.youtube.search(query))
+      .switch()
+
+      // act on the return of the search
+      .subscribe(
+        (results: SearchResult[]) => {  //on success
+          this.loading.next(false);
+          console.log('ok ',results);
+          this.searchResult.next(results);
+        },
+        (err: any) => {         // on error
+          console.log('error ',err);
+          this.loading.next(false);
+        },
+        () => {            // on completion
+          this.loading.next(false);
+          console.log('complete');
+        }
+      )
   }
 }
