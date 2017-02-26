@@ -7,9 +7,9 @@ import { SearchResult } from "./search-result-model"
 
 @Component ({
   input: ['result'],
-  selector : 'search-result-item',
-  template: `<div>hello item</div>`
+  selector : 'search-result-list',
+  template: `<div>hello list</div>`
 })
-export class SearchResultItemComponent{
+export class SearchResultListComponent{
   result: SearchResult[];
 }

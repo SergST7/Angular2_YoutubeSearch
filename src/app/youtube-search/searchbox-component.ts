@@ -19,7 +19,7 @@ import {YouTubeService} from "./providers";
  */
 
 @Component({
-  //output: ['loading', 'searchResult'],
+  //output: ['loading', 'searchResults'],
   selector: "search-box",
   template: `<input type="text" class="form-control" placeholder="Search" autofocus>`,
   providers: [YouTubeService]

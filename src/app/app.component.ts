@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
     <h1>Hello {{name}}</h1>
     <simple-http></simple-http>
     <search-box></search-box>
+    <search-result-list></search-result-list>
     <search-result-item></search-result-item>
     </div>
 `

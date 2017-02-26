@@ -8,6 +8,7 @@ import { AppComponent }  from './app.component';
 import { SimpleHttp }  from './simple-Http-component';
 import { SearchBoxInput }  from './youtube-search/searchbox-component';
 import { SearchResultItemComponent }  from './youtube-search/search-result-item.component';
+import { SearchResultListComponent }  from './youtube-search/search-result-list.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { SearchResultItemComponent }  from './youtube-search/search-result-item.
     AppComponent,
     SimpleHttp,
     SearchBoxInput,
-    SearchResultItemComponent
+    SearchResultItemComponent,
+    SearchResultListComponent
   ],
   bootstrap:    [ AppComponent ],
   providers: [
