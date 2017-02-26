@@ -9,7 +9,7 @@ import {
   ElementRef,
 } from "@angular/core";
 
-import {Observable} from "rxjs/Rx";
+import { Observable } from "rxjs/Rx";
 
 import {SearchResult} from './search-result-model';
 import {YouTubeService} from "./providers";
@@ -19,15 +19,15 @@ import {YouTubeService} from "./providers";
  */
 
 @Component({
-  //output: ['loading', 'searchResults'],
+  outputs: ['loading', 'searchResults'],
   selector: "search-box",
   template: `<input type="text" class="form-control" placeholder="Search" autofocus>`,
-  providers: [YouTubeService]
+  // providers: [YouTubeService]
 })
 export class SearchBoxInput implements OnInit {
 
   loading: EventEmitter <boolean> = new EventEmitter <boolean>();
-  searchResult: EventEmitter <SearchResult[]> = new EventEmitter <SearchResult[]>();
+  searchResults: EventEmitter <SearchResult[]> = new EventEmitter <SearchResult[]>();
 
   constructor(public youtube: YouTubeService, private el: ElementRef) {
   };
@@ -53,10 +53,10 @@ export class SearchBoxInput implements OnInit {
 
       // act on the return of the search
       .subscribe(
-        (results: SearchResult[]) => {  //on success
+        (res: SearchResult[]) => {  //on success
           this.loading.next(false);
-          console.log('ok ',results);
-          this.searchResult.next(results);
+          console.log('ok ',res);
+          this.searchResults.next(res);
         },
         (err: any) => {         // on error
           console.log('error ',err);

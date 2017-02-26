@@ -6,7 +6,7 @@ import { Component } from "@angular/core";
 import { SearchResult } from "./search-result-model"
 
 @Component ({
-  input: ['result'],
+  // input: ['result'],
   selector : 'search-result-item',
   template: `<div>hello item</div>`
 })

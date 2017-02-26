@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 
 import { serviceInjectables } from './youtube-search/providers';
+import { YouTubeService } from './youtube-search/providers';
 
 import { AppComponent }  from './app.component';
 import { SimpleHttp }  from './simple-Http-component';
@@ -25,7 +26,8 @@ import { SearchResultListComponent }  from './youtube-search/search-result-list.
   ],
   bootstrap:    [ AppComponent ],
   providers: [
-    serviceInjectables
+    serviceInjectables,
+    YouTubeService
   ]
 })
 export class AppModule { }

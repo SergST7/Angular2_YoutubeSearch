@@ -6,10 +6,30 @@ import { Component } from "@angular/core";
 import { SearchResult } from "./search-result-model"
 
 @Component ({
-  input: ['result'],
   selector : 'search-result-list',
-  template: `<div>hello list</div>`
+  template: `
+ <div class="container">
+  <div class="page-header">
+    <h1>Youtube Search</h1>
+    <div class="row">
+      <div class="input-group input-group-lg col-md-12">
+        <search-box
+            (loading)="loading=$event"
+            (searchResults)="updateResults($event)">
+            </search-box>
+      </div>
+    </div>
+    <img *ngIf="loading" src="images/loading.gif">
+    
+</div>
+ 
+ </div>`
 })
 export class SearchResultListComponent{
-  result: SearchResult[];
+  res: SearchResult[];
+
+  updateResults(results: SearchResult[]):void {
+    this.res = results;
+    console.log(this.res);
+  }
 }
