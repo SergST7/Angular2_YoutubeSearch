@@ -9,7 +9,14 @@ import {
   ElementRef,
 } from "@angular/core";
 
-import { Observable } from "rxjs/Rx";
+import { Observable } from "rxjs/Observable";
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/do';
+import 'rxjs/add/operator/filter';
+import 'rxjs/add/operator/debounceTime';
+import 'rxjs/add/operator/switch';
+import 'rxjs/add/observable/fromEvent';
+
 
 import {SearchResult} from './search-result-model';
 import {YouTubeService} from "./providers";

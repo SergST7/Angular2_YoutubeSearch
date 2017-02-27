@@ -11,7 +11,7 @@ import { SearchResult } from "./search-result-model"
  <div class="container">
   <div class="page-header">
     <h1>Youtube Search</h1>
-    <div class="row">
+    <div class="row search">
       <div class="input-group input-group-lg col-md-12">
         <search-box
             (loading)="loading=$event"

@@ -9,14 +9,17 @@ import { SearchResult } from "./search-result-model"
   inputs: ['result'],
   selector : 'search-result-item',
   template: `
-    <div class="col-md-3 col-sm-6">
+    <div class="col-lg-4 col-md-4 col-sm-6">
       <div class="thumbnail">
         <img src="{{result.thumbnailUrl}}" alt="thumbnail">
         <div class="caption">
           <h3>{{result.title}}</h3>
           <p>{{result.description}}</p>
           <div>
-            <a href="{{result.videoUrl}}" class="button btn-success" role="button">Watch</a>
+            <a href="{{result.videoUrl}}"
+             class="btn btn-primary btn-lg btn-block" 
+             role="button" 
+             target="_blank">Watch</a>
           </div>
         </div>
       </div> 
