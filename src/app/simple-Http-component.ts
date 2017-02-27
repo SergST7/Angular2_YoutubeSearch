@@ -9,7 +9,7 @@ import { Http, Response } from "@angular/http";
   selector: "simple-http",
   template: `
     <h2>Basic request</h2>
-    <button type="button" class="btn btn-primary" (click)="makeReq()">Make Request</button>
+    <button type="button" class="btn btn-primary search" (click)="makeReq()">Make Request</button>
     <div *ngIf="loading">Loading...</div>
     <pre>{{ data | json }}</pre>
 `

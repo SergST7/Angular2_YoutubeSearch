@@ -6,10 +6,11 @@ import { Component } from "@angular/core";
 import { SearchResult } from "./search-result-model"
 
 @Component ({
+  host:{'class':'col-lg-4 col-md-4 col-sm-6'},
   inputs: ['result'],
   selector : 'search-result-item',
   template: `
-    <div class="col-lg-4 col-md-4 col-sm-6">
+    <div>
       <div class="thumbnail">
         <img src="{{result.thumbnailUrl}}" alt="thumbnail">
         <div class="caption">

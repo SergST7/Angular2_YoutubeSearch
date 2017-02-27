@@ -8,10 +8,11 @@ import { SearchResult } from "./search-result-model"
 @Component ({
   selector : 'search-result-list',
   template: `
- <div class="container">
+ <div class="container-fluid">
   <div class="page-header">
     <h1>Youtube Search</h1>
-    <div class="row search">
+  </div>
+    <div class="row  search">
       <div class="input-group input-group-lg col-md-12">
         <search-box
             (loading)="loading=$event"
@@ -20,13 +21,12 @@ import { SearchResult } from "./search-result-model"
       </div>
     </div>
     <img *ngIf="loading" src="images/loading.gif">
-    <div class="row">
+    <div class="row row-flex">
       <search-result-item
           *ngFor="let result of res"
           [result]="result">
       </search-result-item>
      </div>
-  </div>
  </div>
 `
 })

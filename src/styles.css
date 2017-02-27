@@ -8,4 +8,7 @@ h1 {
   margin-bottom: 20px;
 }
 
-
+.row-flex {
+  display: flex;
+  flex-flow: row wrap;
+}
