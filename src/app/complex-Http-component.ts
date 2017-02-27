@@ -8,8 +8,10 @@ import { Http, Response } from "@angular/http";
 @Component({
   selector: "complex-http",
   template: `
-    <h2>Complex request</h2>
-   
+    <h1>Complex request</h1>
+    <button type="button" class="btn btn-primary search" (click)="makePost()">Make Post</button>
+    <div *ngIf="loading">Loading...</div>
+    <pre>{{ data | json }}</pre>
 `
 })
 export class ComplexHttp {
@@ -19,4 +21,20 @@ export class ComplexHttp {
   constructor(public http: Http){
   }
 
+  makePost(){
+    this.loading = true;
+    this.http.post(
+      'http://jsonplaceholder.typicode.com/posts',
+      JSON.stringify({
+        title: "foo",
+        description: 'bar',
+        body: 'buz',
+        userId: 3
+      }))
+      .subscribe((res: Response) => {
+        this.data = res.json();
+        this.loading = false;
+        }
+      )
+  }
 }
