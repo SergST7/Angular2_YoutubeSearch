@@ -1,6 +1,10 @@
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
+import {
+  RouterModule,
+  Routes
+} from '@angular/router';
 
 import { serviceInjectables } from './youtube-search/providers';
 import { YouTubeService } from './youtube-search/providers';
@@ -11,12 +15,18 @@ import { ComplexHttp }  from './complex-Http-component';
 import { SearchBoxInput }  from './youtube-search/searchbox-component';
 import { SearchResultItemComponent }  from './youtube-search/search-result-item.component';
 import { SearchResultListComponent }  from './youtube-search/search-result-list.component';
+import { NavigationComponent }  from './navigation.component';
 
+const routes: Routes = [
+  {path: '', redirectTo: 'home', pathMatch: 'full'},
+  {path: 'home', component: AppComponent},
+];
 
 @NgModule({
   imports:      [
     BrowserModule,
-    HttpModule
+    HttpModule,
+    RouterModule.forRoot(routes)
 ],
   declarations: [
     AppComponent,
@@ -24,9 +34,10 @@ import { SearchResultListComponent }  from './youtube-search/search-result-list.
     ComplexHttp,
     SearchBoxInput,
     SearchResultItemComponent,
-    SearchResultListComponent
+    SearchResultListComponent,
+    NavigationComponent
   ],
-  bootstrap:    [ AppComponent ],
+  bootstrap:    [ NavigationComponent ],
   providers: [
     serviceInjectables,
     YouTubeService
