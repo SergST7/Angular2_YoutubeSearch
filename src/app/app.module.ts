@@ -5,6 +5,7 @@ import {
   RouterModule,
   Routes
 } from '@angular/router';
+import {LocationStrategy, HashLocationStrategy} from '@angular/common';
 
 import { serviceInjectables } from './youtube-search/providers';
 import { YouTubeService } from './youtube-search/providers';
@@ -44,7 +45,8 @@ const routes: Routes = [
   bootstrap:    [ NavigationComponent ],
   providers: [
     serviceInjectables,
-    YouTubeService
+    YouTubeService,
+    { provide: LocationStrategy, useClass: HashLocationStrategy }
   ]
 })
 export class AppModule { }

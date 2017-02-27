@@ -13,7 +13,7 @@ import { Component } from '@angular/core';
         <li><a [routerLink]="['home']">Home</a></li>
         <li><a [routerLink]="['simple']">Simple HTTP</a></li>
         <li><a [routerLink]="['complex']">Complex HTTP</a></li>
-        <li><a [routerLink]="['searchyoutube']">Youtube Saerch</a></li>
+        <li><a [routerLink]="['searchyoutube']">Youtube Search</a></li>
        </ul>
       </div>
     </nav>
