@@ -7,6 +7,7 @@ import { YouTubeService } from './youtube-search/providers';
 
 import { AppComponent }  from './app.component';
 import { SimpleHttp }  from './simple-Http-component';
+import { ComplexHttp }  from './complex-Http-component';
 import { SearchBoxInput }  from './youtube-search/searchbox-component';
 import { SearchResultItemComponent }  from './youtube-search/search-result-item.component';
 import { SearchResultListComponent }  from './youtube-search/search-result-list.component';
@@ -20,6 +21,7 @@ import { SearchResultListComponent }  from './youtube-search/search-result-list.
   declarations: [
     AppComponent,
     SimpleHttp,
+    ComplexHttp,
     SearchBoxInput,
     SearchResultItemComponent,
     SearchResultListComponent
