@@ -20,6 +20,10 @@ import { NavigationComponent }  from './navigation.component';
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: 'home', component: AppComponent},
+  {path: 'simple', component: SimpleHttp},
+  {path: 'complex', component: ComplexHttp},
+  {path: 'search', component: SearchResultListComponent},
+  {path: 'searchyoutube', redirectTo: 'search'},
 ];
 
 @NgModule({
